@@ -59,7 +59,11 @@ class Auto:
     def check_in(self, el):
         self.node.scroll_to(el)
         self.node.click(el)
-        self.node.find_and_click(By.XPATH, '//img[contains(@src, "arrow-black")]/..')
+        
+        btn = self.node.find(By.XPATH, '//img[contains(@src, "arrow-black")]/..')
+        self.node.scroll_to(btn)
+        self.node.click(btn)
+
         return self.w_metamask_auto.confirm('confirm')
 
     def social_1_click(self, el):
